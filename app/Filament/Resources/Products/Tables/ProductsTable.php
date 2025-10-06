@@ -15,6 +15,7 @@ class ProductsTable
         return $table
             ->columns([
                 TextColumn::make('name')->searchable(),
+                TextColumn::make('category.name')->searchable(),
                 TextColumn::make('price')->numeric()
             ])
             ->filters([
