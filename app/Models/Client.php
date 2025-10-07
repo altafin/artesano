@@ -10,9 +10,9 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
-    public function addresses()
+    public function address()
     {
         // Defines a one-to-many relationship: a client has many addresses
-        return $this->hasMany(Address::class);
+        return $this->hasOne(Address::class);
     }
 }

@@ -15,7 +15,7 @@ class ClientsTable
         return $table
             ->columns([
                 TextColumn::make('name')->searchable(),
-                TextColumn::make('street')->searchable(),
+                TextColumn::make('address.street')->searchable(),
             ])
             ->filters([
                 //

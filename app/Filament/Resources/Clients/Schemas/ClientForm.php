@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Clients\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Group;
 use Filament\Schemas\Schema;
 
 class ClientForm
@@ -14,8 +15,13 @@ class ClientForm
                 TextInput::make('name')
                     ->required()
             ,
-                TextInput::make('street')
-                    ->required()
+                Group::make()
+                    ->relationship('address')
+                    ->schema([
+                        TextInput::make('street')
+                            ->required()
+                    ])
+
             ]);
     }
 }
