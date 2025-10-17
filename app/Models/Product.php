@@ -15,4 +15,19 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function relatedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'product_product', 'product_id', 'composition_id');
+    }
+
+    public function hasComposition(): bool
+    {
+        return $this->relatedProducts()->count() > 0;
+    }
+
+    public function inverseRelatedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'product_product', 'composition_id', 'product_id');
+    }
 }

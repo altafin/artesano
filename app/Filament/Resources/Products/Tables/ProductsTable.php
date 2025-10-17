@@ -16,7 +16,8 @@ class ProductsTable
             ->columns([
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('category.name')->searchable(),
-                TextColumn::make('price')->numeric()
+                TextColumn::make('price')->numeric(),
+                TextColumn::make('total')->counts('relatedProducts')
             ])
             ->filters([
                 //
