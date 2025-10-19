@@ -17,7 +17,11 @@ class ProductsTable
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('category.name')->searchable(),
                 TextColumn::make('price')->numeric(),
-                TextColumn::make('total')->counts('relatedProducts')
+                TextColumn::make('Type')
+                    ->getStateUsing(function ($record): string {
+                        return $record->relatedProducts()->count() > 0 ? 'Composto' : 'Simples';
+                    }),
+                //TextColumn::make('total')->counts('relatedProducts')
             ])
             ->filters([
                 //
