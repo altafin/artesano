@@ -30,11 +30,13 @@ class ProductsTable
             ])
             ->recordActions([
                 EditAction::make(),
+                /*
                 Action::make('composition')
                     ->label('Composition')
                     ->icon('heroicon-o-document-duplicate')
-                    ->url(fn ($record) => ViewProduct::getUrl([$record->id]))
+                    ->url(fn () => ViewProduct::getUrl())
                     ->openUrlInNewTab(false),
+            */
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
