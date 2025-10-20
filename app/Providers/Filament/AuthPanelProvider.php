@@ -56,6 +56,11 @@ class AuthPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->navigationGroups([
+                'Shop',
+                'Blog',
+                'Settings',
             ]);
     }
 }

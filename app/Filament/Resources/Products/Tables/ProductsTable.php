@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Products\Tables;
 
+use App\Filament\Resources\Products\Pages\ViewProduct;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -28,6 +30,11 @@ class ProductsTable
             ])
             ->recordActions([
                 EditAction::make(),
+                Action::make('composition')
+                    ->label('Composition')
+                    ->icon('heroicon-o-document-duplicate')
+                    ->url(fn ($record) => ViewProduct::getUrl([$record->id]))
+                    ->openUrlInNewTab(false),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
