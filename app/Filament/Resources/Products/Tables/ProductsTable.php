@@ -18,7 +18,6 @@ class ProductsTable
             ->columns([
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('category.name')->searchable(),
-                TextColumn::make('price')->numeric(),
                 TextColumn::make('Type')
                     ->getStateUsing(function ($record): string {
                         return $record->relatedProducts()->count() > 0 ? 'Composto' : 'Simples';

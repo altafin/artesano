@@ -16,18 +16,15 @@ class ProductForm
                 TextInput::make('name')
                     ->required()
             ,
-                TextInput::make('price')
-                    ->numeric()
-                    ->suffix('R$')
-            ,
-                Textarea::make('description')
-            ,
                 SelectTree::make('category_id')
                     ->label('Category')
                     ->withCount()
                     ->searchable()
                     ->placeholder('Selecione uma categoria')
                     ->relationship('category', 'name', 'parent_id')
+                ,
+                Textarea::make('description')
+                    ->columnSpanFull()
             ]);
     }
 }
