@@ -4,12 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use SolutionForest\FilamentTree\Concern\ModelTree;
 
 class Category extends Model
 {
     use HasFactory;
+    use ModelTree;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['parent_id', 'name', 'order'];
+
+    protected $casts = [
+        'parent_id' => 'integer'
+    ];
 
     public function parent()
     {

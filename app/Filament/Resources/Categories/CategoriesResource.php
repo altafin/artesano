@@ -53,6 +53,7 @@ class CategoriesResource extends Resource
             'create' => CreateCategories::route('/create'),
             'view' => ViewCategories::route('/{record}'),
             'edit' => EditCategories::route('/{record}/edit'),
+            'tree' => Pages\CategoryTree::route('/tree'),
         ];
     }
 }
